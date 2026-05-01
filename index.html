@@ -74,9 +74,8 @@
   .img-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.08); }
 
   .img-wrap { position: relative; cursor: zoom-in; overflow: hidden; background: #EDE9E0; }
-  .img-wrap img { width: 100%; display: block; object-fit: cover; transition: transform .4s cubic-bezier(.2,.8,.3,1), opacity .3s; opacity: 0; }
-  .img-wrap img.loaded { opacity: 1; }
-  .img-wrap:hover img.loaded { transform: scale(1.04); }
+  .img-wrap img { width: 100%; display: block; object-fit: cover; transition: transform .4s cubic-bezier(.2,.8,.3,1); }
+  .img-wrap:hover img { transform: scale(1.04); }
   .zoom-hint { position: absolute; bottom: 7px; right: 7px; background: rgba(30,28,24,0.65); color: #FAF8F3; font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 7px; border-radius: 1px; opacity: 0; transition: opacity .25s; pointer-events: none; }
   .img-wrap:hover .zoom-hint { opacity: 1; }
 
@@ -863,7 +862,7 @@ function renderSearchResults(query) {
       <div class="img-wrap" data-url="${img.url}" data-title="${(img.title||'').replace(/"/g,'&quot;')}" data-sub="${(img.sub||'').replace(/"/g,'&quot;')}">
         <div class="skeleton"></div>
         <img src="${img.url}" alt="${img.title||''}" style="height:${h}px" loading="lazy"
-             onload="this.classList.add('loaded');this.previousElementSibling.classList.add('hidden')">
+             onload="this.previousElementSibling.classList.add('hidden')">
         <img class="watermark" src="https://i.ibb.co/wNbS2Yn1/Logo-Lienz-Dec-recortado-removebg-preview.png" alt="" draggable="false">
         <span class="zoom-hint">Ver completo</span>
       </div>

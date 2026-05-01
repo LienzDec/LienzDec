@@ -78,21 +78,6 @@
   .img-wrap:hover img { transform: scale(1.04); }
   .zoom-hint { position: absolute; bottom: 7px; right: 7px; background: rgba(30,28,24,0.65); color: #FAF8F3; font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 7px; border-radius: 1px; opacity: 0; transition: opacity .25s; pointer-events: none; }
   .img-wrap:hover .zoom-hint { opacity: 1; }
-
-  /* Skeleton loading */
-  .skeleton {
-    position: absolute; inset: 0;
-    background: linear-gradient(90deg, #EDE9E0 25%, #E4DFD6 50%, #EDE9E0 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.4s infinite;
-    z-index: 1;
-    transition: opacity .3s;
-  }
-  .skeleton.hidden { opacity: 0; pointer-events: none; }
-  @keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
   .watermark { position: absolute; bottom: 8px; left: 8px; width: 28%; max-width: 90px; opacity: 0.22; pointer-events: none; user-select: none; transition: opacity .3s; z-index: 2; filter: brightness(0) invert(1); }
   .img-wrap:hover .watermark { opacity: 0.15; }
   .lb-img-wrap { position: relative; }
@@ -860,9 +845,8 @@ function renderSearchResults(query) {
     card.className = 'img-card';
     card.innerHTML = `
       <div class="img-wrap" data-url="${img.url}" data-title="${(img.title||'').replace(/"/g,'&quot;')}" data-sub="${(img.sub||'').replace(/"/g,'&quot;')}">
-        <div class="skeleton"></div>
         <img src="${img.url}" alt="${img.title||''}" style="height:${h}px" loading="lazy"
-             onload="this.previousElementSibling.classList.add('hidden')">
+>
         <img class="watermark" src="https://i.ibb.co/wNbS2Yn1/Logo-Lienz-Dec-recortado-removebg-preview.png" alt="" draggable="false">
         <span class="zoom-hint">Ver completo</span>
       </div>

@@ -305,56 +305,56 @@ const alUrls = [
   "https://i.ibb.co/Y42sqgTJ/AL-099-PD2.jpg","https://i.ibb.co/9m6GYCX4/AL-100-PD2.jpg"
 ];
 
-const alcoholImages = alUrls.map((url, i) => ({
-  url, title: `Alcohol Abstracto ${String(i+1).padStart(3,'0')}`, sub: "", h: 280
+const alcoholImages = alUrls.map((url) => ({
+  url, title: url.split('/').pop().replace('.jpg',''), sub: "", h: 280
 }));
 
 const catalogoPinturas45 = [
-  { url: "https://i.ibb.co/b5PGMvCf/01-Mona-Lisa-by-Leonardo-Da-Vinci-PD02.jpg", title: "Mona Lisa", sub: "Leonardo Da Vinci", h: 290 },
-  { url: "https://i.ibb.co/jPHM0k4f/02-Lady-with-an-Ermine-by-Leonardo-da-Vinci-PD02.jpg", title: "Lady with an Ermine", sub: "Leonardo da Vinci", h: 320 },
-  { url: "https://i.ibb.co/d4LdhB47/03-Girl-with-a-Pearl-Earring-by-Johannes-Vermeer-PD02.jpg", title: "Girl with a Pearl Earring", sub: "Johannes Vermeer", h: 340 },
-  { url: "https://i.ibb.co/Z61LHw5V/04-Las-Meninas-by-Diego-Vel-zquez-PD02.jpg", title: "Las Meninas", sub: "Diego Velázquez", h: 360 },
-  { url: "https://i.ibb.co/KzpYg5Fm/05-The-Storm-on-the-Sea-of-Galilee-by-Rembrandt-PD02.jpg", title: "The Storm on the Sea of Galilee", sub: "Rembrandt", h: 280 },
-  { url: "https://i.ibb.co/Vck3dm2j/06-The-Woman-with-a-Parasol-by-Claude-Oscar-Monet-PD02.jpg", title: "The Woman with a Parasol", sub: "Claude Oscar Monet", h: 320 },
-  { url: "https://i.ibb.co/RkWNhyKR/07-Dante-And-Virgil-In-Hell-by-William-Adolphe-Bouguereau-PD02.jpg", title: "Dante and Virgil in Hell", sub: "William-Adolphe Bouguereau", h: 350 },
-  { url: "https://i.ibb.co/FLt7phcg/08-Napoleon-Crossing-the-Alps-by-Jacques-Louis-David-PD02.jpg", title: "Napoleon Crossing the Alps", sub: "Jacques-Louis David", h: 340 },
-  { url: "https://i.ibb.co/RGyDWv5q/09-St-George-and-the-Dragon-by-Raphael-Raffaello-PD02.jpg", title: "St. George and the Dragon", sub: "Rafael Raffaello", h: 310 },
-  { url: "https://i.ibb.co/B5fv8ggY/10-The-Swing-by-Jean-Honor-Fragonard-PD02.jpg", title: "The Swing", sub: "Jean-Honoré Fragonard", h: 340 },
-  { url: "https://i.ibb.co/hJ2MgY4x/11-When-Will-You-Marry-by-Paul-Gauguin-PD02.jpg", title: "When Will You Marry", sub: "Paul Gauguin", h: 280 },
-  { url: "https://i.ibb.co/8gqp2Lkz/12-View-of-Toledo-by-El-Greco-PD02.jpg", title: "View of Toledo", sub: "El Greco", h: 350 },
-  { url: "https://i.ibb.co/XPfD2WN/13-Wanderer-above-the-Sea-of-Fog-by-Caspar-David-Friedrich-PD02.jpg", title: "Wanderer above the Sea of Fog", sub: "Caspar David Friedrich", h: 380 },
-  { url: "https://i.ibb.co/DHP4DFtn/14-The-Scream-by-Edvard-Munch-PD02.jpg", title: "The Scream", sub: "Edvard Munch", h: 360 },
-  { url: "https://i.ibb.co/sd8X3mVB/15-The-Kiss-by-Gustav-Klimt-PD02.jpg", title: "The Kiss", sub: "Gustav Klimt", h: 370 },
-  { url: "https://i.ibb.co/hR90S0RJ/16-The-Arnolfini-Portrait-by-Jan-van-Eyck-PD02.jpg", title: "The Arnolfini Portrait", sub: "Jan van Eyck", h: 360 },
-  { url: "https://i.ibb.co/HfLzm0CD/17-American-Gothic-by-Grant-Wood-PD02.jpg", title: "American Gothic", sub: "Grant Wood", h: 330 },
-  { url: "https://i.ibb.co/fGnkw6KC/18-Battle-Of-Issus-by-Albrecht-Altdorfer-PD02.jpg", title: "Battle of Issus", sub: "Albrecht Altdorfer", h: 270 },
-  { url: "https://i.ibb.co/nqt5yVHy/19-Bacchus-by-Caravaggio-PD02.jpg", title: "Bacchus", sub: "Caravaggio", h: 340 },
-  { url: "https://i.ibb.co/MDDmZCzv/20-La-Virgen-de-los-Lirios-by-Willian-Adolphe-Bouguereau-PD02.jpg", title: "La Virgen de los Lirios", sub: "William-Adolphe Bouguereau", h: 360 },
-  { url: "https://i.ibb.co/bRzK3mLB/21-The-Starry-Night-By-Vincent-Van-Gogh-PD02.jpg", title: "The Starry Night", sub: "Vincent Van Gogh", h: 280 },
-  { url: "https://i.ibb.co/bjCVdwvp/22-The-Gulf-Stream-by-Winslow-Homer-PD02.jpg", title: "The Gulf Stream", sub: "Winslow Homer", h: 300 },
-  { url: "https://i.ibb.co/twCFXNYg/23-The-Birth-of-Venus-by-Sandro-Botticelli-PD02.jpg", title: "The Birth of Venus", sub: "Sandro Botticelli", h: 260 },
-  { url: "https://i.ibb.co/jPhhvgqb/24-Stag-Night-At-Sharkeys-by-George-Bellows-PD02.jpg", title: "Stag Night at Sharkey's", sub: "George Bellows", h: 300 },
-  { url: "https://i.ibb.co/DDCQ75Jf/25-The-Raft-of-the-Medusa-by-Th-odore-G-ricault-PD02.jpg", title: "The Raft of the Medusa", sub: "Théodore Géricault", h: 270 },
-  { url: "https://i.ibb.co/d44LVN8s/26-The-Triumph-of-Venus-by-Francois-Boucher-PD02.jpg", title: "The Triumph of Venus", sub: "François Boucher", h: 290 },
-  { url: "https://i.ibb.co/FkfW4gr5/27-A-Bar-at-the-Folies-Berg-re-by-douard-Manet-PD02.jpg", title: "A Bar at the Folies-Bergère", sub: "Édouard Manet", h: 290 },
-  { url: "https://i.ibb.co/MkZH5jcB/28-A-Cotton-Office-In-New-Orleans-by-Edgar-Degas-PD02.jpg", title: "A Cotton Office in New Orleans", sub: "Edgar Degas", h: 280 },
-  { url: "https://i.ibb.co/zH8VbWyp/29-Bal-du-moulin-de-la-Galette-by-Pierre-Auguste-Renoir-PD02.jpg", title: "Bal du Moulin de la Galette", sub: "Pierre-Auguste Renoir", h: 280 },
-  { url: "https://i.ibb.co/DfkxPfZ4/30-A-Sunday-Afternoon-on-the-Island-of-La-Grande-Jatte-by-Georges-Seurat-PD02.jpg", title: "A Sunday on La Grande Jatte", sub: "Georges Seurat", h: 260 },
-  { url: "https://i.ibb.co/DfNZ3v5n/31-Luncheon-of-the-Boating-Party-by-Pierre-Auguste-Renoir-PD02.jpg", title: "Luncheon of the Boating Party", sub: "Pierre-Auguste Renoir", h: 270 },
-  { url: "https://i.ibb.co/8LWJYdw9/32-Le-D-jeuner-sur-l-herbe-by-douard-Manet-PD02.jpg", title: "Le Déjeuner sur l'herbe", sub: "Édouard Manet", h: 280 },
-  { url: "https://i.ibb.co/fd2XbGPY/33-Liberty-Leading-the-People-by-Eug-ne-Delacroix-PD02.jpg", title: "Liberty Leading the People", sub: "Eugène Delacroix", h: 280 },
-  { url: "https://i.ibb.co/m5t36qMf/34-The-Card-Players-by-Paul-C-zanne-PD02.jpg", title: "The Card Players", sub: "Paul Cézanne", h: 290 },
-  { url: "https://i.ibb.co/Y4hnRQx6/35-Wheat-Field-with-Cypresses-at-the-Haude-Galline-near-Eygalieres-by-Vincent-van-Gogh-PD02.jpg", title: "Wheat Field with Cypresses", sub: "Vincent van Gogh", h: 270 },
-  { url: "https://i.ibb.co/dsB74M6T/36-The-Third-of-May-1808-by-Francisco-Goya-PD02.jpg", title: "The Third of May 1808", sub: "Francisco Goya", h: 280 },
-  { url: "https://i.ibb.co/vCk56Bm4/37-The-Sleeping-Gypsy-by-Henri-Rousseau-PD02.jpg", title: "The Sleeping Gypsy", sub: "Henri Rousseau", h: 270 },
-  { url: "https://i.ibb.co/hx4h7BL0/38-The-Night-Watch-by-Rembrandt-PD02.jpg", title: "The Night Watch", sub: "Rembrandt", h: 270 },
-  { url: "https://i.ibb.co/jvGJP02K/39-The-Lady-Of-Shalott-by-John-William-Waterhouse-PD02.jpg", title: "The Lady of Shalott", sub: "John William Waterhouse", h: 290 },
-  { url: "https://i.ibb.co/Q3pnDC95/40-The-Harvesters-by-Pieter-Bruegel-the-Elder-PD02.jpg", title: "The Harvesters", sub: "Pieter Bruegel the Elder", h: 270 },
-  { url: "https://i.ibb.co/N2NNJCpY/41-Boulevard-Montmartre-Spring-by-Camille-Pissarro-PD02.jpg", title: "Boulevard Montmartre, Spring", sub: "Camille Pissarro", h: 280 },
-  { url: "https://i.ibb.co/DDTML42V/42-Impression-Sunrise-by-Claude-Monet-PD02.jpg", title: "Impression, Sunrise", sub: "Claude Monet", h: 280 },
-  { url: "https://i.ibb.co/Vh6cJrX/43-Paris-Street-In-Rainy-Weather-by-Gustave-Caillebotte-PD02.jpg", title: "Paris Street in Rainy Weather", sub: "Gustave Caillebotte", h: 290 },
-  { url: "https://i.ibb.co/Wvgrz4D7/44-Saint-Jerome-Writing-by-Caravaggio-PD02.jpg", title: "Saint Jerome Writing", sub: "Caravaggio", h: 320 },
-  { url: "https://i.ibb.co/GffwmVmD/45-Breezing-Up-also-known-as-A-Fair-Wind-by-Winslow-Homer-PD02.jpg", title: "Breezing Up (A Fair Wind)", sub: "Winslow Homer", h: 270 }
+  { url: "https://i.ibb.co/b5PGMvCf/01-Mona-Lisa-by-Leonardo-Da-Vinci-PD02.jpg", title: "01-Mona-Lisa-by-Leonardo-Da-Vinci-PD02", sub: "Leonardo Da Vinci", h: 290 },
+  { url: "https://i.ibb.co/jPHM0k4f/02-Lady-with-an-Ermine-by-Leonardo-da-Vinci-PD02.jpg", title: "02-Lady-with-an-Ermine-by-Leonardo-da-Vinci-PD02", sub: "Leonardo da Vinci", h: 320 },
+  { url: "https://i.ibb.co/d4LdhB47/03-Girl-with-a-Pearl-Earring-by-Johannes-Vermeer-PD02.jpg", title: "03-Girl-with-a-Pearl-Earring-by-Johannes-Vermeer-PD02", sub: "Johannes Vermeer", h: 340 },
+  { url: "https://i.ibb.co/Z61LHw5V/04-Las-Meninas-by-Diego-Vel-zquez-PD02.jpg", title: "04-Las-Meninas-by-Diego-Vel-zquez-PD02", sub: "Diego Velázquez", h: 360 },
+  { url: "https://i.ibb.co/KzpYg5Fm/05-The-Storm-on-the-Sea-of-Galilee-by-Rembrandt-PD02.jpg", title: "05-The-Storm-on-the-Sea-of-Galilee-by-Rembrandt-PD02", sub: "Rembrandt", h: 280 },
+  { url: "https://i.ibb.co/Vck3dm2j/06-The-Woman-with-a-Parasol-by-Claude-Oscar-Monet-PD02.jpg", title: "06-The-Woman-with-a-Parasol-by-Claude-Oscar-Monet-PD02", sub: "Claude Oscar Monet", h: 320 },
+  { url: "https://i.ibb.co/RkWNhyKR/07-Dante-And-Virgil-In-Hell-by-William-Adolphe-Bouguereau-PD02.jpg", title: "07-Dante-And-Virgil-In-Hell-by-William-Adolphe-Bouguereau-PD02", sub: "William-Adolphe Bouguereau", h: 350 },
+  { url: "https://i.ibb.co/FLt7phcg/08-Napoleon-Crossing-the-Alps-by-Jacques-Louis-David-PD02.jpg", title: "08-Napoleon-Crossing-the-Alps-by-Jacques-Louis-David-PD02", sub: "Jacques-Louis David", h: 340 },
+  { url: "https://i.ibb.co/RGyDWv5q/09-St-George-and-the-Dragon-by-Raphael-Raffaello-PD02.jpg", title: "09-St-George-and-the-Dragon-by-Raphael-Raffaello-PD02", sub: "Rafael Raffaello", h: 310 },
+  { url: "https://i.ibb.co/B5fv8ggY/10-The-Swing-by-Jean-Honor-Fragonard-PD02.jpg", title: "10-The-Swing-by-Jean-Honor-Fragonard-PD02", sub: "Jean-Honoré Fragonard", h: 340 },
+  { url: "https://i.ibb.co/hJ2MgY4x/11-When-Will-You-Marry-by-Paul-Gauguin-PD02.jpg", title: "11-When-Will-You-Marry-by-Paul-Gauguin-PD02", sub: "Paul Gauguin", h: 280 },
+  { url: "https://i.ibb.co/8gqp2Lkz/12-View-of-Toledo-by-El-Greco-PD02.jpg", title: "12-View-of-Toledo-by-El-Greco-PD02", sub: "El Greco", h: 350 },
+  { url: "https://i.ibb.co/XPfD2WN/13-Wanderer-above-the-Sea-of-Fog-by-Caspar-David-Friedrich-PD02.jpg", title: "13-Wanderer-above-the-Sea-of-Fog-by-Caspar-David-Friedrich-PD02", sub: "Caspar David Friedrich", h: 380 },
+  { url: "https://i.ibb.co/DHP4DFtn/14-The-Scream-by-Edvard-Munch-PD02.jpg", title: "14-The-Scream-by-Edvard-Munch-PD02", sub: "Edvard Munch", h: 360 },
+  { url: "https://i.ibb.co/sd8X3mVB/15-The-Kiss-by-Gustav-Klimt-PD02.jpg", title: "15-The-Kiss-by-Gustav-Klimt-PD02", sub: "Gustav Klimt", h: 370 },
+  { url: "https://i.ibb.co/hR90S0RJ/16-The-Arnolfini-Portrait-by-Jan-van-Eyck-PD02.jpg", title: "16-The-Arnolfini-Portrait-by-Jan-van-Eyck-PD02", sub: "Jan van Eyck", h: 360 },
+  { url: "https://i.ibb.co/HfLzm0CD/17-American-Gothic-by-Grant-Wood-PD02.jpg", title: "17-American-Gothic-by-Grant-Wood-PD02", sub: "Grant Wood", h: 330 },
+  { url: "https://i.ibb.co/fGnkw6KC/18-Battle-Of-Issus-by-Albrecht-Altdorfer-PD02.jpg", title: "18-Battle-Of-Issus-by-Albrecht-Altdorfer-PD02", sub: "Albrecht Altdorfer", h: 270 },
+  { url: "https://i.ibb.co/nqt5yVHy/19-Bacchus-by-Caravaggio-PD02.jpg", title: "19-Bacchus-by-Caravaggio-PD02", sub: "Caravaggio", h: 340 },
+  { url: "https://i.ibb.co/MDDmZCzv/20-La-Virgen-de-los-Lirios-by-Willian-Adolphe-Bouguereau-PD02.jpg", title: "20-La-Virgen-de-los-Lirios-by-Willian-Adolphe-Bouguereau-PD02", sub: "William-Adolphe Bouguereau", h: 360 },
+  { url: "https://i.ibb.co/bRzK3mLB/21-The-Starry-Night-By-Vincent-Van-Gogh-PD02.jpg", title: "21-The-Starry-Night-By-Vincent-Van-Gogh-PD02", sub: "Vincent Van Gogh", h: 280 },
+  { url: "https://i.ibb.co/bjCVdwvp/22-The-Gulf-Stream-by-Winslow-Homer-PD02.jpg", title: "22-The-Gulf-Stream-by-Winslow-Homer-PD02", sub: "Winslow Homer", h: 300 },
+  { url: "https://i.ibb.co/twCFXNYg/23-The-Birth-of-Venus-by-Sandro-Botticelli-PD02.jpg", title: "23-The-Birth-of-Venus-by-Sandro-Botticelli-PD02", sub: "Sandro Botticelli", h: 260 },
+  { url: "https://i.ibb.co/jPhhvgqb/24-Stag-Night-At-Sharkeys-by-George-Bellows-PD02.jpg", title: "24-Stag-Night-At-Sharkeys-by-George-Bellows-PD02", sub: "George Bellows", h: 300 },
+  { url: "https://i.ibb.co/DDCQ75Jf/25-The-Raft-of-the-Medusa-by-Th-odore-G-ricault-PD02.jpg", title: "25-The-Raft-of-the-Medusa-by-Th-odore-G-ricault-PD02", sub: "Théodore Géricault", h: 270 },
+  { url: "https://i.ibb.co/d44LVN8s/26-The-Triumph-of-Venus-by-Francois-Boucher-PD02.jpg", title: "26-The-Triumph-of-Venus-by-Francois-Boucher-PD02", sub: "François Boucher", h: 290 },
+  { url: "https://i.ibb.co/FkfW4gr5/27-A-Bar-at-the-Folies-Berg-re-by-douard-Manet-PD02.jpg", title: "27-A-Bar-at-the-Folies-Berg-re-by-douard-Manet-PD02", sub: "Édouard Manet", h: 290 },
+  { url: "https://i.ibb.co/MkZH5jcB/28-A-Cotton-Office-In-New-Orleans-by-Edgar-Degas-PD02.jpg", title: "28-A-Cotton-Office-In-New-Orleans-by-Edgar-Degas-PD02", sub: "Edgar Degas", h: 280 },
+  { url: "https://i.ibb.co/zH8VbWyp/29-Bal-du-moulin-de-la-Galette-by-Pierre-Auguste-Renoir-PD02.jpg", title: "29-Bal-du-moulin-de-la-Galette-by-Pierre-Auguste-Renoir-PD02", sub: "Pierre-Auguste Renoir", h: 280 },
+  { url: "https://i.ibb.co/DfkxPfZ4/30-A-Sunday-Afternoon-on-the-Island-of-La-Grande-Jatte-by-Georges-Seurat-PD02.jpg", title: "30-A-Sunday-Afternoon-on-the-Island-of-La-Grande-Jatte-by-Georges-Seurat-PD02", sub: "Georges Seurat", h: 260 },
+  { url: "https://i.ibb.co/DfNZ3v5n/31-Luncheon-of-the-Boating-Party-by-Pierre-Auguste-Renoir-PD02.jpg", title: "31-Luncheon-of-the-Boating-Party-by-Pierre-Auguste-Renoir-PD02", sub: "Pierre-Auguste Renoir", h: 270 },
+  { url: "https://i.ibb.co/8LWJYdw9/32-Le-D-jeuner-sur-l-herbe-by-douard-Manet-PD02.jpg", title: "32-Le-D-jeuner-sur-l-herbe-by-douard-Manet-PD02", sub: "Édouard Manet", h: 280 },
+  { url: "https://i.ibb.co/fd2XbGPY/33-Liberty-Leading-the-People-by-Eug-ne-Delacroix-PD02.jpg", title: "33-Liberty-Leading-the-People-by-Eug-ne-Delacroix-PD02", sub: "Eugène Delacroix", h: 280 },
+  { url: "https://i.ibb.co/m5t36qMf/34-The-Card-Players-by-Paul-C-zanne-PD02.jpg", title: "34-The-Card-Players-by-Paul-C-zanne-PD02", sub: "Paul Cézanne", h: 290 },
+  { url: "https://i.ibb.co/Y4hnRQx6/35-Wheat-Field-with-Cypresses-at-the-Haude-Galline-near-Eygalieres-by-Vincent-van-Gogh-PD02.jpg", title: "35-Wheat-Field-with-Cypresses-at-the-Haude-Galline-near-Eygalieres-by-Vincent-van-Gogh-PD02", sub: "Vincent van Gogh", h: 270 },
+  { url: "https://i.ibb.co/dsB74M6T/36-The-Third-of-May-1808-by-Francisco-Goya-PD02.jpg", title: "36-The-Third-of-May-1808-by-Francisco-Goya-PD02", sub: "Francisco Goya", h: 280 },
+  { url: "https://i.ibb.co/vCk56Bm4/37-The-Sleeping-Gypsy-by-Henri-Rousseau-PD02.jpg", title: "37-The-Sleeping-Gypsy-by-Henri-Rousseau-PD02", sub: "Henri Rousseau", h: 270 },
+  { url: "https://i.ibb.co/hx4h7BL0/38-The-Night-Watch-by-Rembrandt-PD02.jpg", title: "38-The-Night-Watch-by-Rembrandt-PD02", sub: "Rembrandt", h: 270 },
+  { url: "https://i.ibb.co/jvGJP02K/39-The-Lady-Of-Shalott-by-John-William-Waterhouse-PD02.jpg", title: "39-The-Lady-Of-Shalott-by-John-William-Waterhouse-PD02", sub: "John William Waterhouse", h: 290 },
+  { url: "https://i.ibb.co/Q3pnDC95/40-The-Harvesters-by-Pieter-Bruegel-the-Elder-PD02.jpg", title: "40-The-Harvesters-by-Pieter-Bruegel-the-Elder-PD02", sub: "Pieter Bruegel the Elder", h: 270 },
+  { url: "https://i.ibb.co/N2NNJCpY/41-Boulevard-Montmartre-Spring-by-Camille-Pissarro-PD02.jpg", title: "41-Boulevard-Montmartre-Spring-by-Camille-Pissarro-PD02", sub: "Camille Pissarro", h: 280 },
+  { url: "https://i.ibb.co/DDTML42V/42-Impression-Sunrise-by-Claude-Monet-PD02.jpg", title: "42-Impression-Sunrise-by-Claude-Monet-PD02", sub: "Claude Monet", h: 280 },
+  { url: "https://i.ibb.co/Vh6cJrX/43-Paris-Street-In-Rainy-Weather-by-Gustave-Caillebotte-PD02.jpg", title: "43-Paris-Street-In-Rainy-Weather-by-Gustave-Caillebotte-PD02", sub: "Gustave Caillebotte", h: 290 },
+  { url: "https://i.ibb.co/Wvgrz4D7/44-Saint-Jerome-Writing-by-Caravaggio-PD02.jpg", title: "44-Saint-Jerome-Writing-by-Caravaggio-PD02", sub: "Caravaggio", h: 320 },
+  { url: "https://i.ibb.co/GffwmVmD/45-Breezing-Up-also-known-as-A-Fair-Wind-by-Winslow-Homer-PD02.jpg", title: "45-Breezing-Up-also-known-as-A-Fair-Wind-by-Winslow-Homer-PD02", sub: "Winslow Homer", h: 270 }
 ];
 
 const catalogo = [
@@ -369,29 +369,29 @@ const catalogo = [
         name: "Abraham Bloemaert", 
         cover: "https://i.ibb.co/cK0ygX8M/Abraham-Bloemaert-001-PD02.jpg", 
         images: [
-          { url: "https://i.ibb.co/cK0ygX8M/Abraham-Bloemaert-001-PD02.jpg", title: "Abraham Bloemaert 01", sub: "", h: 280 },
-          { url: "https://i.ibb.co/DDZMxggY/Abraham-Bloemaert-002-PD02.jpg", title: "Abraham Bloemaert 02", sub: "", h: 280 },
-          { url: "https://i.ibb.co/1B26VdT/Abraham-Bloemaert-003-PD02.jpg", title: "Abraham Bloemaert 03", sub: "", h: 280 },
-          { url: "https://i.ibb.co/67sTGGJP/Abraham-Bloemaert-004-PD02.jpg", title: "Abraham Bloemaert 04", sub: "", h: 280 },
-          { url: "https://i.ibb.co/Kp0Tkfn9/Abraham-Bloemaert-005-PD02.jpg", title: "Abraham Bloemaert 05", sub: "", h: 280 },
-          { url: "https://i.ibb.co/XxDzZ0Xh/Abraham-Bloemaert-006-PD02.jpg", title: "Abraham Bloemaert 06", sub: "", h: 280 },
-          { url: "https://i.ibb.co/m5mfv7Gb/Abraham-Bloemaert-007-PD02.jpg", title: "Abraham Bloemaert 07", sub: "", h: 280 },
-          { url: "https://i.ibb.co/xS2MvW3W/Abraham-Bloemaert-008-PD02.jpg", title: "Abraham Bloemaert 08", sub: "", h: 280 },
-          { url: "https://i.ibb.co/C3qf0fRS/Abraham-Bloemaert-009-PD02.jpg", title: "Abraham Bloemaert 09", sub: "", h: 280 },
-          { url: "https://i.ibb.co/6dwGQYy/Abraham-Bloemaert-010-PD02.jpg", title: "Abraham Bloemaert 10", sub: "", h: 280 },
-          { url: "https://i.ibb.co/rGTCxJm5/Abraham-Bloemaert-100-01-PD02.jpg", title: "Abraham Bloemaert 11", sub: "", h: 280 },
-          { url: "https://i.ibb.co/4n64KqhW/Abraham-Bloemaert-101-04-PD02.jpg", title: "Abraham Bloemaert 12", sub: "", h: 280 },
-          { url: "https://i.ibb.co/JwCN1GzR/Abraham-Bloemaert-102-01-PD02.jpg", title: "Abraham Bloemaert 13", sub: "", h: 280 },
-          { url: "https://i.ibb.co/xxjt5sC/Abraham-Bloemaert-103-04-PD02.jpg", title: "Abraham Bloemaert 14", sub: "", h: 280 },
-          { url: "https://i.ibb.co/jkj2RHLF/Abraham-Bloemaert-104-05-PD02.jpg", title: "Abraham Bloemaert 15", sub: "", h: 280 },
-          { url: "https://i.ibb.co/5Wq1gWGb/Abraham-Bloemaert-105-04-PD02.jpg", title: "Abraham Bloemaert 16", sub: "", h: 280 },
-          { url: "https://i.ibb.co/sp90RSyY/Abraham-Bloemaert-106-04-PD02.jpg", title: "Abraham Bloemaert 17", sub: "", h: 280 },
-          { url: "https://i.ibb.co/rKLfTK0s/Abraham-Bloemaert-107-05-PD02.jpg", title: "Abraham Bloemaert 18", sub: "", h: 280 },
-          { url: "https://i.ibb.co/pjZQzY2n/Abraham-Bloemaert-108-01-PD02.jpg", title: "Abraham Bloemaert 19", sub: "", h: 280 },
-          { url: "https://i.ibb.co/HfkYbWGf/Abraham-Bloemaert-109-04-PD02.jpg", title: "Abraham Bloemaert 20", sub: "", h: 280 },
-          { url: "https://i.ibb.co/3mCx3FJ3/Abraham-Bloemaert-110-01-PD02.jpg", title: "Abraham Bloemaert 21", sub: "", h: 280 },
-          { url: "https://i.ibb.co/0yxg6TF8/Abraham-Bloemaert-111-05-PD02.jpg", title: "Abraham Bloemaert 22", sub: "", h: 280 },
-          { url: "https://i.ibb.co/JWgLGGxb/Abraham-Bloemaert-112-05-PD02.jpg", title: "Abraham Bloemaert 23", sub: "", h: 280 }
+          { url: "https://i.ibb.co/cK0ygX8M/Abraham-Bloemaert-001-PD02.jpg", title: "Abraham-Bloemaert-001-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/DDZMxggY/Abraham-Bloemaert-002-PD02.jpg", title: "Abraham-Bloemaert-002-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/1B26VdT/Abraham-Bloemaert-003-PD02.jpg", title: "Abraham-Bloemaert-003-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/67sTGGJP/Abraham-Bloemaert-004-PD02.jpg", title: "Abraham-Bloemaert-004-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/Kp0Tkfn9/Abraham-Bloemaert-005-PD02.jpg", title: "Abraham-Bloemaert-005-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/XxDzZ0Xh/Abraham-Bloemaert-006-PD02.jpg", title: "Abraham-Bloemaert-006-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/m5mfv7Gb/Abraham-Bloemaert-007-PD02.jpg", title: "Abraham-Bloemaert-007-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/xS2MvW3W/Abraham-Bloemaert-008-PD02.jpg", title: "Abraham-Bloemaert-008-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/C3qf0fRS/Abraham-Bloemaert-009-PD02.jpg", title: "Abraham-Bloemaert-009-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/6dwGQYy/Abraham-Bloemaert-010-PD02.jpg", title: "Abraham-Bloemaert-010-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/rGTCxJm5/Abraham-Bloemaert-100-01-PD02.jpg", title: "Abraham-Bloemaert-100-01-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/4n64KqhW/Abraham-Bloemaert-101-04-PD02.jpg", title: "Abraham-Bloemaert-101-04-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/JwCN1GzR/Abraham-Bloemaert-102-01-PD02.jpg", title: "Abraham-Bloemaert-102-01-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/xxjt5sC/Abraham-Bloemaert-103-04-PD02.jpg", title: "Abraham-Bloemaert-103-04-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/jkj2RHLF/Abraham-Bloemaert-104-05-PD02.jpg", title: "Abraham-Bloemaert-104-05-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/5Wq1gWGb/Abraham-Bloemaert-105-04-PD02.jpg", title: "Abraham-Bloemaert-105-04-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/sp90RSyY/Abraham-Bloemaert-106-04-PD02.jpg", title: "Abraham-Bloemaert-106-04-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/rKLfTK0s/Abraham-Bloemaert-107-05-PD02.jpg", title: "Abraham-Bloemaert-107-05-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/pjZQzY2n/Abraham-Bloemaert-108-01-PD02.jpg", title: "Abraham-Bloemaert-108-01-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/HfkYbWGf/Abraham-Bloemaert-109-04-PD02.jpg", title: "Abraham-Bloemaert-109-04-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/3mCx3FJ3/Abraham-Bloemaert-110-01-PD02.jpg", title: "Abraham-Bloemaert-110-01-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/0yxg6TF8/Abraham-Bloemaert-111-05-PD02.jpg", title: "Abraham-Bloemaert-111-05-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/JWgLGGxb/Abraham-Bloemaert-112-05-PD02.jpg", title: "Abraham-Bloemaert-112-05-PD02", sub: "", h: 280 }
         ] 
       },
       { 
@@ -399,19 +399,19 @@ const catalogo = [
         name: "Abraham Mignon", 
         cover: "https://i.ibb.co/FLcdmjHy/Abraham-Mignon-01-PD02.jpg", 
         images: [
-          { url: "https://i.ibb.co/FLcdmjHy/Abraham-Mignon-01-PD02.jpg", title: "Abraham Mignon 01", sub: "", h: 280 },
-          { url: "https://i.ibb.co/3mKDQBbK/Abraham-Mignon-02-PD02.jpg", title: "Abraham Mignon 02", sub: "", h: 280 },
-          { url: "https://i.ibb.co/MyfPbzQC/Abraham-Mignon-03-PD02.jpg", title: "Abraham Mignon 03", sub: "", h: 280 },
-          { url: "https://i.ibb.co/MxLwc3rV/Abraham-Mignon-04-PD02.jpg", title: "Abraham Mignon 04", sub: "", h: 280 },
-          { url: "https://i.ibb.co/Xx6km7rz/Abraham-Mignon-05-PD02.jpg", title: "Abraham Mignon 05", sub: "", h: 280 },
-          { url: "https://i.ibb.co/39ZmZtbD/Abraham-Mignon-06-PD02.jpg", title: "Abraham Mignon 06", sub: "", h: 280 },
-          { url: "https://i.ibb.co/Nd8pbp3b/Abraham-Mignon-07-PD02.jpg", title: "Abraham Mignon 07", sub: "", h: 280 },
-          { url: "https://i.ibb.co/wNcqTxVM/Abraham-Mignon-08-PD02.jpg", title: "Abraham Mignon 08", sub: "", h: 280 },
-          { url: "https://i.ibb.co/D676kbN/Abraham-Mignon-09-PD02.jpg", title: "Abraham Mignon 09", sub: "", h: 280 },
-          { url: "https://i.ibb.co/ns64GSQ7/Abraham-Mignon-10-PD02.jpg", title: "Abraham Mignon 10", sub: "", h: 280 },
-          { url: "https://i.ibb.co/213S8Wm9/Abraham-Mignon-11-PD02.jpg", title: "Abraham Mignon 11", sub: "", h: 280 },
-          { url: "https://i.ibb.co/gs0qkWq/Abraham-Mignon-12-PD02.jpg", title: "Abraham Mignon 12", sub: "", h: 280 },
-          { url: "https://i.ibb.co/yBYygH1N/Abraham-Mignon-13-PD02.jpg", title: "Abraham Mignon 13", sub: "", h: 280 }
+          { url: "https://i.ibb.co/FLcdmjHy/Abraham-Mignon-01-PD02.jpg", title: "Abraham-Mignon-01-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/3mKDQBbK/Abraham-Mignon-02-PD02.jpg", title: "Abraham-Mignon-02-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/MyfPbzQC/Abraham-Mignon-03-PD02.jpg", title: "Abraham-Mignon-03-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/MxLwc3rV/Abraham-Mignon-04-PD02.jpg", title: "Abraham-Mignon-04-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/Xx6km7rz/Abraham-Mignon-05-PD02.jpg", title: "Abraham-Mignon-05-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/39ZmZtbD/Abraham-Mignon-06-PD02.jpg", title: "Abraham-Mignon-06-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/Nd8pbp3b/Abraham-Mignon-07-PD02.jpg", title: "Abraham-Mignon-07-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/wNcqTxVM/Abraham-Mignon-08-PD02.jpg", title: "Abraham-Mignon-08-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/D676kbN/Abraham-Mignon-09-PD02.jpg", title: "Abraham-Mignon-09-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/ns64GSQ7/Abraham-Mignon-10-PD02.jpg", title: "Abraham-Mignon-10-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/213S8Wm9/Abraham-Mignon-11-PD02.jpg", title: "Abraham-Mignon-11-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/gs0qkWq/Abraham-Mignon-12-PD02.jpg", title: "Abraham-Mignon-12-PD02", sub: "", h: 280 },
+          { url: "https://i.ibb.co/yBYygH1N/Abraham-Mignon-13-PD02.jpg", title: "Abraham-Mignon-13-PD02", sub: "", h: 280 }
         ] 
       }
     ]
@@ -428,73 +428,147 @@ const catalogo = [
     name: "Animales",
     cover: "https://i.ibb.co/v4syTtHZ/AN01-01-PD2.jpg",
     subcats: [
-      { id: "aguila", name: "Águila", cover: "https://i.ibb.co/v4syTtHZ/AN01-01-PD2.jpg", images: [
-        { url: "https://i.ibb.co/v4syTtHZ/AN01-01-PD2.jpg", title: "Águila 01", sub: "", h: 280 },
-        { url: "https://i.ibb.co/vxCQFBH4/AN01-02-PD2.jpg", title: "Águila 02", sub: "", h: 280 },
-        { url: "https://i.ibb.co/VYcJT1R0/AN01-03-PD2.jpg", title: "Águila 03", sub: "", h: 280 },
-        { url: "https://i.ibb.co/R4SRKRsc/AN01-04-PD2.jpg", title: "Águila 04", sub: "", h: 280 },
-        { url: "https://i.ibb.co/6cWMMGmh/AN01-05-PD2.jpg", title: "Águila 05", sub: "", h: 280 },
-        { url: "https://i.ibb.co/R42vZwSk/AN01-06-PD2.jpg", title: "Águila 06", sub: "", h: 280 },
-        { url: "https://i.ibb.co/wFT64xm0/AN01-07-PD2.jpg", title: "Águila 07", sub: "", h: 280 },
-        { url: "https://i.ibb.co/kgnY7srT/AN01-08-PD2.jpg", title: "Águila 08", sub: "", h: 280 },
-        { url: "https://i.ibb.co/0RWq1gVh/AN01-09-PD2.jpg", title: "Águila 09", sub: "", h: 280 },
-        { url: "https://i.ibb.co/h1hYVr7Y/AN01-10-PD2.jpg", title: "Águila 10", sub: "", h: 280 },
-        { url: "https://i.ibb.co/qF1qdg6y/AN01-11-PD2.jpg", title: "Águila 11", sub: "", h: 280 },
-        { url: "https://i.ibb.co/9m4BfQ1L/AN01-12-PD2.jpg", title: "Águila 12", sub: "", h: 280 },
-        { url: "https://i.ibb.co/5WCL9T7g/AN01-13-PD2.jpg", title: "Águila 13", sub: "", h: 280 },
-        { url: "https://i.ibb.co/7tgPXkbL/AN01-14-PD2.jpg", title: "Águila 14", sub: "", h: 280 },
-        { url: "https://i.ibb.co/BVBzG3T3/AN01-15-PD2.jpg", title: "Águila 15", sub: "", h: 280 },
-        { url: "https://i.ibb.co/tyv36n9/AN01-16-PD2.jpg", title: "Águila 16", sub: "", h: 280 },
-        { url: "https://i.ibb.co/N8sykjc/AN01-17-PD2.jpg", title: "Águila 17", sub: "", h: 280 },
-        { url: "https://i.ibb.co/JwgZ2cjJ/AN01-18-PD2.jpg", title: "Águila 18", sub: "", h: 280 }
+      { id: "aguila", name: "Águila", cover: "https://i.ibb.co/v4syTtHZ/AN01-01-PD2.jpg", tags: "aguila aguilas pajaro ave rapaz vuelo halcon", images: [
+        { url: "https://i.ibb.co/v4syTtHZ/AN01-01-PD2.jpg", title: "AN01-01-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/vxCQFBH4/AN01-02-PD2.jpg", title: "AN01-02-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/VYcJT1R0/AN01-03-PD2.jpg", title: "AN01-03-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/R4SRKRsc/AN01-04-PD2.jpg", title: "AN01-04-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/6cWMMGmh/AN01-05-PD2.jpg", title: "AN01-05-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/R42vZwSk/AN01-06-PD2.jpg", title: "AN01-06-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/wFT64xm0/AN01-07-PD2.jpg", title: "AN01-07-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/kgnY7srT/AN01-08-PD2.jpg", title: "AN01-08-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/0RWq1gVh/AN01-09-PD2.jpg", title: "AN01-09-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/h1hYVr7Y/AN01-10-PD2.jpg", title: "AN01-10-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/qF1qdg6y/AN01-11-PD2.jpg", title: "AN01-11-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/9m4BfQ1L/AN01-12-PD2.jpg", title: "AN01-12-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/5WCL9T7g/AN01-13-PD2.jpg", title: "AN01-13-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/7tgPXkbL/AN01-14-PD2.jpg", title: "AN01-14-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/BVBzG3T3/AN01-15-PD2.jpg", title: "AN01-15-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/tyv36n9/AN01-16-PD2.jpg", title: "AN01-16-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/N8sykjc/AN01-17-PD2.jpg", title: "AN01-17-PD2", sub: "", h: 280 },
+        { url: "https://i.ibb.co/JwgZ2cjJ/AN01-18-PD2.jpg", title: "AN01-18-PD2", sub: "", h: 280 }
       ] },
       { 
         id: "acuaticos", 
         name: "Acuáticos", 
         cover: "https://i.ibb.co/cS8NV77j/AN02-01-PD2.jpg", 
+        tags: "peces pez pescado marino acuatico acuático agua oceano ocean koi tiburon delfin ballena coral arrecife",
         images: [
-          { url: "https://i.ibb.co/cS8NV77j/AN02-01-PD2.jpg", title: "Acuático 01", sub: "", h: 280 },
-          { url: "https://i.ibb.co/0VmtH25K/AN02-02-PD2.jpg", title: "Acuático 02", sub: "", h: 280 },
-          { url: "https://i.ibb.co/60X9f2VP/AN02-03-PD2.jpg", title: "Acuático 03", sub: "", h: 280 },
-          { url: "https://i.ibb.co/VYb3GxtK/AN02-04-PD2.jpg", title: "Acuático 04", sub: "", h: 280 },
-          { url: "https://i.ibb.co/0V6Zxgvz/AN02-05-PD2.jpg", title: "Acuático 05", sub: "", h: 280 },
-          { url: "https://i.ibb.co/5Xwr4m1X/AN02-06-PD2.jpg", title: "Acuático 06", sub: "", h: 280 },
-          { url: "https://i.ibb.co/0y13fN6t/AN02-07-PD2.jpg", title: "Acuático 07", sub: "", h: 280 },
-          { url: "https://i.ibb.co/mF1Vcxkm/AN02-08-PD2.jpg", title: "Acuático 08", sub: "", h: 280 },
-          { url: "https://i.ibb.co/Z6538FRY/AN02-09-PD2.jpg", title: "Acuático 09", sub: "", h: 280 },
-          { url: "https://i.ibb.co/bMtb9VVN/AN02-10-PD2.jpg", title: "Acuático 10", sub: "", h: 280 },
-          { url: "https://i.ibb.co/gMksnfkf/AN02-11-PD2.jpg", title: "Acuático 11", sub: "", h: 280 },
-          { url: "https://i.ibb.co/wN4N03th/AN02-12-PD2.jpg", title: "Acuático 12", sub: "", h: 280 },
-          { url: "https://i.ibb.co/zWPYzKTZ/AN02-13-PD2.jpg", title: "Acuático 13", sub: "", h: 280 },
-          { url: "https://i.ibb.co/679yZ361/AN02-14-PD2.jpg", title: "Acuático 14", sub: "", h: 280 },
-          { url: "https://i.ibb.co/GDdPMs7/AN02-15-PD2.jpg", title: "Acuático 15", sub: "", h: 280 },
-          { url: "https://i.ibb.co/438LWNw/AN02-16-PD2.jpg", title: "Acuático 16", sub: "", h: 280 },
-          { url: "https://i.ibb.co/mFCNRQ2W/AN02-17-PD2.jpg", title: "Acuático 17", sub: "", h: 280 },
-          { url: "https://i.ibb.co/n8r4dzNZ/AN02-18-PD2.jpg", title: "Acuático 18", sub: "", h: 280 },
-          { url: "https://i.ibb.co/DgDNykWW/AN02-19-PD2.jpg", title: "Acuático 19", sub: "", h: 280 },
-          { url: "https://i.ibb.co/tMhBLwrg/AN02-20-PD2.jpg", title: "Acuático 20", sub: "", h: 280 },
-          { url: "https://i.ibb.co/8gMBxmDM/AN02-21-PD2.jpg", title: "Acuático 21", sub: "", h: 280 },
-          { url: "https://i.ibb.co/Cs6S2k5J/AN02-22-PD2.jpg", title: "Acuático 22", sub: "", h: 280 },
-          { url: "https://i.ibb.co/9mQ1vRkc/AN02-23-PD2.jpg", title: "Acuático 23", sub: "", h: 280 }
+          { url: "https://i.ibb.co/cS8NV77j/AN02-01-PD2.jpg", title: "AN02-01-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/0VmtH25K/AN02-02-PD2.jpg", title: "AN02-02-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/60X9f2VP/AN02-03-PD2.jpg", title: "AN02-03-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/VYb3GxtK/AN02-04-PD2.jpg", title: "AN02-04-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/0V6Zxgvz/AN02-05-PD2.jpg", title: "AN02-05-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/5Xwr4m1X/AN02-06-PD2.jpg", title: "AN02-06-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/0y13fN6t/AN02-07-PD2.jpg", title: "AN02-07-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/mF1Vcxkm/AN02-08-PD2.jpg", title: "AN02-08-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/Z6538FRY/AN02-09-PD2.jpg", title: "AN02-09-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/bMtb9VVN/AN02-10-PD2.jpg", title: "AN02-10-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/gMksnfkf/AN02-11-PD2.jpg", title: "AN02-11-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/wN4N03th/AN02-12-PD2.jpg", title: "AN02-12-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/zWPYzKTZ/AN02-13-PD2.jpg", title: "AN02-13-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/679yZ361/AN02-14-PD2.jpg", title: "AN02-14-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/GDdPMs7/AN02-15-PD2.jpg", title: "AN02-15-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/438LWNw/AN02-16-PD2.jpg", title: "AN02-16-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/mFCNRQ2W/AN02-17-PD2.jpg", title: "AN02-17-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/n8r4dzNZ/AN02-18-PD2.jpg", title: "AN02-18-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/DgDNykWW/AN02-19-PD2.jpg", title: "AN02-19-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/tMhBLwrg/AN02-20-PD2.jpg", title: "AN02-20-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/8gMBxmDM/AN02-21-PD2.jpg", title: "AN02-21-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/Cs6S2k5J/AN02-22-PD2.jpg", title: "AN02-22-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/9mQ1vRkc/AN02-23-PD2.jpg", title: "AN02-23-PD2", sub: "", h: 280 }
         ] 
       },
       { 
         id: "guacamayos", 
         name: "Guacamayos", 
         cover: "https://i.ibb.co/Csm979cL/AN03-01-PD2.jpg", 
+        tags: "guacamayo guacamayos loro loros perico periquito ave pajaro colorido tropico tropical",
         images: [
-          { url: "https://i.ibb.co/Csm979cL/AN03-01-PD2.jpg", title: "Guacamayo 01", sub: "", h: 280 },
-          { url: "https://i.ibb.co/QjMkDW6j/AN03-02-PD2.jpg", title: "Guacamayo 02", sub: "", h: 280 },
-          { url: "https://i.ibb.co/kVYVWRSd/AN03-03-PD2.jpg", title: "Guacamayo 03", sub: "", h: 280 },
-          { url: "https://i.ibb.co/VWH7JW2F/AN03-04-PD2.jpg", title: "Guacamayo 04", sub: "", h: 280 },
-          { url: "https://i.ibb.co/Ng8cYt47/AN03-05-PD2.jpg", title: "Guacamayo 05", sub: "", h: 280 },
-          { url: "https://i.ibb.co/rKGHyd6D/AN03-06-PD2.jpg", title: "Guacamayo 06", sub: "", h: 280 },
-          { url: "https://i.ibb.co/QjK9nV9p/AN03-07-PD2.jpg", title: "Guacamayo 07", sub: "", h: 280 },
-          { url: "https://i.ibb.co/V0BphDzD/AN03-08-PD2.jpg", title: "Guacamayo 08", sub: "", h: 280 },
-          { url: "https://i.ibb.co/wV3dmQp/AN03-09-PD2.jpg", title: "Guacamayo 09", sub: "", h: 280 },
-          { url: "https://i.ibb.co/M5s5msGt/AN03-10-PD2.jpg", title: "Guacamayo 10", sub: "", h: 280 }
+          { url: "https://i.ibb.co/Csm979cL/AN03-01-PD2.jpg", title: "AN03-01-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/QjMkDW6j/AN03-02-PD2.jpg", title: "AN03-02-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/kVYVWRSd/AN03-03-PD2.jpg", title: "AN03-03-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/VWH7JW2F/AN03-04-PD2.jpg", title: "AN03-04-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/Ng8cYt47/AN03-05-PD2.jpg", title: "AN03-05-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/rKGHyd6D/AN03-06-PD2.jpg", title: "AN03-06-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/QjK9nV9p/AN03-07-PD2.jpg", title: "AN03-07-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/V0BphDzD/AN03-08-PD2.jpg", title: "AN03-08-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/wV3dmQp/AN03-09-PD2.jpg", title: "AN03-09-PD2", sub: "", h: 280 },
+          { url: "https://i.ibb.co/M5s5msGt/AN03-10-PD2.jpg", title: "AN03-10-PD2", sub: "", h: 280 }
         ] 
       }
+    ]
+  },
+  {
+    id: "mujer-negra",
+    name: "Mujer Negra",
+    cover: "https://i.ibb.co/wZq96M5c/BG01-01-PD2.jpg",
+    tags: "negra dorado mujer negrita africana africa reina elegante melanina dorada",
+    subcats: null,
+    images: [
+      { url: "https://i.ibb.co/wZq96M5c/BG01-01-PD2.jpg", title: "BG01-01-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/G45LChWG/BG01-02-PD2.jpg", title: "BG01-02-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/wNnx6BfJ/BG01-03-PD2.jpg", title: "BG01-03-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/vxjpmFZf/BG01-04-PD2.jpg", title: "BG01-04-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/8Lw1VX1p/BG01-05-PD2.jpg", title: "BG01-05-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/9HMx3YFw/BG01-06-PD2.jpg", title: "BG01-06-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/mCxCNs0V/BG01-07-PD2.jpg", title: "BG01-07-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/dw4tDQ4b/BG01-08-PD2.jpg", title: "BG01-08-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/3yMVCZLz/BG01-09-PD2.jpg", title: "BG01-09-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/SXbJnzJN/BG01-10-PD2.jpg", title: "BG01-10-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/LXvqzZ17/BG01-11-PD2.jpg", title: "BG01-11-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/kVch9g8x/BG01-12-PD2.jpg", title: "BG01-12-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/Vfs7Ddn/BG01-13-PD2.jpg", title: "BG01-13-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/RTmm09KW/BG01-14-PD2.jpg", title: "BG01-14-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/RG4zvsPc/BG01-15-PD2.jpg", title: "BG01-15-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/TqvrqfGQ/BG01-16-PD2.jpg", title: "BG01-16-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/zhfrJJmG/BG01-17-PD2.jpg", title: "BG01-17-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/MycFwnsT/BG01-18-PD2.jpg", title: "BG01-18-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/SD63Xdyp/BG01-19-PD2.jpg", title: "BG01-19-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/WNwYMWyt/BG01-20-PD2.jpg", title: "BG01-20-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/Ldt4cjkn/BG01-21-PD2.jpg", title: "BG01-21-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/0j1fsRG1/BG01-22-PD2.jpg", title: "BG01-22-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/S4s7jMDw/BG01-23-PD2.jpg", title: "BG01-23-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/XZjzDcbr/BG01-24-PD2.jpg", title: "BG01-24-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/0VCmk916/BG01-25-PD2.jpg", title: "BG01-25-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/8gdqxb0g/BG01-26-PD2.jpg", title: "BG01-26-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/hNgt7Kz/BG01-27-PD2.jpg", title: "BG01-27-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/HTn5HGpr/BG01-28-PD2.jpg", title: "BG01-28-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/LDY9NxTk/BG01-29-PD2.jpg", title: "BG01-29-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/gFDGscc2/BG01-30-PD2.jpg", title: "BG01-30-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/B2QQyf1D/BG01-31-PD2.jpg", title: "BG01-31-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/zVS8yMMV/BG01-32-PD2.jpg", title: "BG01-32-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/ZRdt16t3/BG01-33-PD2.jpg", title: "BG01-33-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/whXNPVP8/BG01-34-PD2.jpg", title: "BG01-34-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/yF7LtK4N/BG01-35-PD2.jpg", title: "BG01-35-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/BVyfqmJQ/BG01-36-PD2.jpg", title: "BG01-36-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/0RqrkC4D/BG01-37-PD2.jpg", title: "BG01-37-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/4RyzydKr/BG01-38-PD2.jpg", title: "BG01-38-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/PygZVw6/BG01-39-PD2.jpg", title: "BG01-39-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/Nnby1yHy/BG01-40-PD2.jpg", title: "BG01-40-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/75xS29Y/BG01-41-PD2.jpg", title: "BG01-41-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/vxQ8bCr7/BG01-42-PD2.jpg", title: "BG01-42-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/6RyQYCf4/BG01-43-PD2.jpg", title: "BG01-43-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/pjq1ZXhp/BG01-44-PD2.jpg", title: "BG01-44-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/5xg6BZsK/BG01-45-PD2.jpg", title: "BG01-45-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/wFCHcgtM/BG01-46-PD2.jpg", title: "BG01-46-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/bRjgTYtc/BG01-47-PD2.jpg", title: "BG01-47-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/wrRCFY50/BG01-48-PD2.jpg", title: "BG01-48-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/xq0nxPnK/BG01-49-PD2.jpg", title: "BG01-49-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/6cBpbqV4/BG01-51-PD2.jpg", title: "BG01-51-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/YTKCc4dp/BG01-53-PD2.jpg", title: "BG01-53-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/Q3mprJ1m/BG01-54-PD2.jpg", title: "BG01-54-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/BV1tsf8B/BG01-55-PD2.jpg", title: "BG01-55-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/gpM2M09/BG01-56-PD2.jpg", title: "BG01-56-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/KzL2P241/BG01-57-PD2.jpg", title: "BG01-57-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/LDty8JY4/BG01-58-PD2.jpg", title: "BG01-58-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/zpnkgCW/BG01-59-PD2.jpg", title: "BG01-59-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/yBFYbg0M/BG01-60-PD2.jpg", title: "BG01-60-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/49q3w9N/BG01-61-PD2.jpg", title: "BG01-61-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/2Yk4ZMNY/BG01-62-PD2.jpg", title: "BG01-62-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/ZpFrpLBs/BG01-63-PD2.jpg", title: "BG01-63-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/BVWNSvR4/BG01-64-PD2.jpg", title: "BG01-64-PD2", sub: "", h: 300 },
+      { url: "https://i.ibb.co/BH7dMsRM/BG01-66-PD2.jpg", title: "BG01-66-PD2", sub: "", h: 300 }
     ]
   }
 ];
@@ -532,7 +606,9 @@ function updateBreadcrumb() {
 
 function goHome() {
   currentCat = null; currentSubcat = null;
-  updateBreadcrumb(); showView('view-home');
+  updateBreadcrumb();
+  history.replaceState(null, '', window.location.pathname);
+  showView('view-home');
 }
 
 function goToCategory() { if (currentCat) openCategory(currentCat); }
@@ -564,6 +640,7 @@ function renderHome() {
 
 function openCategory(cat) {
   currentCat = cat; currentSubcat = null; updateBreadcrumb();
+  history.replaceState(null, '', '#' + cat.id);
   if (cat.subcats) { renderSubcats(cat); showView('view-subcats'); }
   else { renderGallery(cat.images, cat.name, false, 1); showView('view-gallery'); }
 }
@@ -593,6 +670,7 @@ function renderSubcats(cat) {
 
 function openSubcat(sub) {
   currentSubcat = sub; updateBreadcrumb();
+  history.replaceState(null, '', '#' + currentCat.id + '/' + sub.id);
   renderGallery(sub.images, sub.name, true, 1); showView('view-gallery');
 }
 
@@ -715,12 +793,26 @@ function buildSearchIndex() {
     if (cat.subcats) {
       cat.subcats.forEach(sub => {
         sub.images.forEach(img => {
-          index.push({ ...img, catName: cat.name, subcatName: sub.name });
+          index.push({
+            ...img,
+            catName: cat.name,
+            subcatName: sub.name,
+            catTags: cat.tags || "",
+            subcatTags: sub.tags || "",
+            imgTags: img.tags || ""
+          });
         });
       });
     } else if (cat.images) {
       cat.images.forEach(img => {
-        index.push({ ...img, catName: cat.name, subcatName: null });
+        index.push({
+          ...img,
+          catName: cat.name,
+          subcatName: null,
+          catTags: cat.tags || "",
+          subcatTags: "",
+          imgTags: img.tags || ""
+        });
       });
     }
   });
@@ -735,7 +827,10 @@ function renderSearchResults(query) {
     return (img.title || '').toLowerCase().includes(q)
         || (img.sub || '').toLowerCase().includes(q)
         || (img.catName || '').toLowerCase().includes(q)
-        || (img.subcatName || '').toLowerCase().includes(q);
+        || (img.subcatName || '').toLowerCase().includes(q)
+        || (img.catTags || '').toLowerCase().includes(q)
+        || (img.subcatTags || '').toLowerCase().includes(q)
+        || (img.imgTags || '').toLowerCase().includes(q);
   });
 
   showView('view-search');
@@ -809,6 +904,45 @@ renderHome();
 
 // Construir índice DESPUÉS de que catalogo está definido
 const searchIndex = buildSearchIndex();
+
+// Navegar a hash si existe en la URL al cargar
+function navigateToHash() {
+  const hash = window.location.hash.replace('#', '');
+  if (!hash) return;
+
+  const parts = hash.split('/');
+  const catId = parts[0];
+  const subId = parts[1] || null;
+
+  const cat = catalogo.find(c => c.id === catId);
+  if (!cat) return;
+
+  currentCat = cat;
+
+  if (subId && cat.subcats) {
+    const sub = cat.subcats.find(s => s.id === subId);
+    if (sub) {
+      currentSubcat = sub;
+      updateBreadcrumb();
+      renderGallery(sub.images, sub.name, true, 1);
+      showView('view-gallery');
+      return;
+    }
+  }
+
+  // Solo categoría sin subcategoría
+  currentSubcat = null;
+  updateBreadcrumb();
+  if (cat.subcats) {
+    renderSubcats(cat);
+    showView('view-subcats');
+  } else {
+    renderGallery(cat.images, cat.name, false, 1);
+    showView('view-gallery');
+  }
+}
+
+navigateToHash();
 
 // Listener del buscador
 let searchTimer;

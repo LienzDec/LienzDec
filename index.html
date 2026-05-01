@@ -707,6 +707,116 @@ document.getElementById('lb-close').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
+// ── BUSCADOR GLOBAL ────────────────────────────────────────────────────────
+
+// Construye un índice plano de todas las imágenes del catálogo
+function buildSearchIndex() {
+  const index = [];
+  catalogo.forEach(cat => {
+    if (cat.subcats) {
+      cat.subcats.forEach(sub => {
+        sub.images.forEach(img => {
+          index.push({ ...img, catName: cat.name, subcatName: sub.name });
+        });
+      });
+    } else if (cat.images) {
+      cat.images.forEach(img => {
+        index.push({ ...img, catName: cat.name, subcatName: null });
+      });
+    }
+  });
+  return index;
+}
+
+const searchIndex = buildSearchIndex();
+
+function renderSearchResults(query) {
+  const q = query.trim().toLowerCase();
+  if (!q) { clearSearch(); return; }
+
+  const results = searchIndex.filter(img => {
+    return (img.title || '').toLowerCase().includes(q)
+        || (img.sub || '').toLowerCase().includes(q)
+        || (img.catName || '').toLowerCase().includes(q)
+        || (img.subcatName || '').toLowerCase().includes(q);
+  });
+
+  showView('view-search');
+  updateBreadcrumb();
+  document.getElementById('search-results-title').textContent = `"${query}"`;
+  document.getElementById('search-results-count').textContent =
+    results.length === 0 ? 'Sin resultados' :
+    results.length === 1 ? '1 obra encontrada' :
+    `${results.length} obras encontradas`;
+
+  const grid = document.getElementById('search-grid');
+  grid.innerHTML = '';
+
+  if (results.length === 0) {
+    grid.innerHTML = `
+      <div class="no-results" style="column-span:all">
+        <p>No encontramos nada</p>
+        <span>Intenta con otro término — artista, categoría o nombre de obra</span>
+      </div>`;
+    return;
+  }
+
+  const scale = window.innerWidth <= 860 ? 0.65 : 1;
+  results.forEach(img => {
+    const msg = encodeURIComponent(`Hola, me interesa el cuadro "${img.title}" del catálogo LienzDec. ¿Me pueden dar más información?`);
+    const h = Math.round((img.h || 280) * scale);
+    const label = img.subcatName ? `${img.catName} › ${img.subcatName}` : img.catName;
+    const card = document.createElement('div');
+    card.className = 'img-card';
+    card.innerHTML = `
+      <div class="img-wrap" data-url="${img.url}" data-title="${(img.title||'').replace(/"/g,'&quot;')}" data-sub="${(img.sub||'').replace(/"/g,'&quot;')}" data-grid="search">
+        <img src="${img.url}" alt="${img.title}" style="height:${h}px" loading="lazy">
+        <img class="watermark" src="https://i.ibb.co/wNbS2Yn1/Logo-Lienz-Dec-recortado-removebg-preview.png" alt="" draggable="false">
+        <span class="zoom-hint">Ver completo</span>
+      </div>
+      <div class="img-body">
+        <span class="search-result-cat">${label}</span>
+        <p class="img-title">${img.title||''}</p>
+        ${img.sub ? `<p class="img-sub">${img.sub}</p>` : ''}
+        <a class="wa-btn" href="https://wa.me/${WA}?text=${msg}" target="_blank" rel="noopener">${waIconSVG} Consultar</a>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+// Lightbox también para resultados de búsqueda
+document.getElementById('search-grid').addEventListener('click', e => {
+  const wrap = e.target.closest('.img-wrap');
+  if (!wrap) return;
+  lbImg.src = wrap.dataset.url;
+  lbImg.alt = wrap.dataset.title;
+  lbTitle.textContent = wrap.dataset.title;
+  lbSub.textContent = wrap.dataset.sub;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+
+function clearSearch() {
+  const input = document.getElementById('search-input');
+  input.value = '';
+  document.getElementById('search-clear').style.display = 'none';
+  document.getElementById('search-icon').style.display = '';
+  goHome();
+}
+
+// Listener del input con debounce para no buscar en cada tecla
+let searchTimer;
+document.getElementById('search-input').addEventListener('input', function() {
+  const q = this.value.trim();
+  const clearBtn = document.getElementById('search-clear');
+  const searchIcon = document.getElementById('search-icon');
+  clearBtn.style.display = q ? 'block' : 'none';
+  searchIcon.style.display = q ? 'none' : '';
+  clearTimeout(searchTimer);
+  if (!q) { clearSearch(); return; }
+  searchTimer = setTimeout(() => renderSearchResults(this.value), 300);
+});
+
 // ── INIT ───────────────────────────────────────────────────────────────────
 renderHome();
 </script>

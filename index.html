@@ -134,6 +134,12 @@
   footer { text-align: center; padding: 2rem 1.5rem; border-top: 1px solid var(--border); background: var(--warm-white); margin-top: 2rem; }
   footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: var(--light-muted); text-transform: uppercase; }
   .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 0.3rem; display: block; }
+
+  /* Lazy load - skeleton y fade-in */
+  .img-skeleton { background: linear-gradient(90deg, #ede8df 25%, #e4dfd5 50%, #ede8df 75%); background-size: 200% 100%; animation: skeleton-shimmer 1.4s infinite; }
+  @keyframes skeleton-shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+  img.lazy-img { opacity: 0; transition: opacity 0.35s ease; display: block; }
+  img.lazy-loaded { opacity: 1; }
 </style>
 </head>
 <body>
@@ -690,7 +696,7 @@ function renderGallery(images, title, hasParent, page = 1) {
     card.className = 'img-card';
     card.innerHTML = `
       <div class="img-wrap" data-url="${img.url}" data-title="${(img.title||'').replace(/"/g,'&quot;')}" data-sub="${(img.sub||'').replace(/"/g,'&quot;')}">
-        <img src="${img.url}" alt="${img.title}" style="height:${h}px" loading="lazy">
+        <img data-src="${img.url}" alt="${img.title}" style="height:${h}px" class="lazy-img">
         <img class="watermark" src="https://i.ibb.co/wNbS2Yn1/Logo-Lienz-Dec-recortado-removebg-preview.png" alt="" draggable="false">
         <span class="zoom-hint">Ver completo</span>
       </div>
@@ -701,6 +707,9 @@ function renderGallery(images, title, hasParent, page = 1) {
       </div>`;
     grid.appendChild(card);
   });
+
+  // Activar lazy load con IntersectionObserver para las imágenes de esta página
+  activateLazyLoad(grid);
 
   renderPaginationControls(totalPages, images.length);
 }
@@ -845,8 +854,7 @@ function renderSearchResults(query) {
     card.className = 'img-card';
     card.innerHTML = `
       <div class="img-wrap" data-url="${img.url}" data-title="${(img.title||'').replace(/"/g,'&quot;')}" data-sub="${(img.sub||'').replace(/"/g,'&quot;')}">
-        <img src="${img.url}" alt="${img.title||''}" style="height:${h}px" loading="lazy"
->
+        <img data-src="${img.url}" alt="${img.title||''}" style="height:${h}px" class="lazy-img">
         <img class="watermark" src="https://i.ibb.co/wNbS2Yn1/Logo-Lienz-Dec-recortado-removebg-preview.png" alt="" draggable="false">
         <span class="zoom-hint">Ver completo</span>
       </div>
@@ -858,6 +866,7 @@ function renderSearchResults(query) {
       </div>`;
     grid.appendChild(card);
   });
+  activateLazyLoad(grid);
 }
 
 function clearSearch() {
@@ -1006,6 +1015,39 @@ document.getElementById('search-input').addEventListener('input', function() {
   if (!q) { clearSearch(); return; }
   searchTimer = setTimeout(() => renderSearchResults(this.value), 300);
 });
+
+// ── LAZY LOAD CON INTERSECTIONOBSERVER ────────────────────────────────────
+// Carga imágenes solo cuando entran al viewport, libera las anteriores al cambiar página
+let lazyObserver = null;
+
+function activateLazyLoad(container) {
+  // Desconectar observer anterior para liberar memoria de imágenes viejas
+  if (lazyObserver) {
+    lazyObserver.disconnect();
+    lazyObserver = null;
+  }
+
+  lazyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        const src = img.dataset.src;
+        if (src) {
+          img.src = src;
+          img.removeAttribute('data-src');
+          img.classList.add('lazy-loaded');
+          img.parentElement.classList.remove('img-skeleton');
+        }
+        lazyObserver.unobserve(img);
+      }
+    });
+  }, { rootMargin: '150px 0px' });
+
+  container.querySelectorAll('img.lazy-img').forEach(img => {
+    img.parentElement.classList.add('img-skeleton');
+    lazyObserver.observe(img);
+  });
+}
 </script>
 </body>
 </html>

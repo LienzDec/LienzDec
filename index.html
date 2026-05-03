@@ -6,6 +6,8 @@
 <title>LienzDec — Catálogo</title>
 <link rel="icon" type="image/png" href="https://i.ibb.co/wNbS2Yn1/Logo-Lienz-Dec-recortado-removebg-preview.png">
 <link rel="apple-touch-icon" href="https://i.ibb.co/wNbS2Yn1/Logo-Lienz-Dec-recortado-removebg-preview.png">
+<link rel="preconnect" href="https://i.ibb.co">
+<link rel="dns-prefetch" href="https://i.ibb.co">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -589,7 +591,7 @@ let currentCat = null, currentSubcat = null;
 
 // Variables globales para la paginación
 let currentPage = 1;
-const itemsPerPage = 30;
+const itemsPerPage = 12;
 let currentGalleryImages = [];
 let currentGalleryTitle = "";
 let currentGalleryHasParent = false;
@@ -708,7 +710,18 @@ function renderGallery(images, title, hasParent, page = 1) {
     grid.appendChild(card);
   });
 
-  // Activar lazy load con IntersectionObserver para las imágenes de esta página
+  // Primeras 4 imágenes con prioridad alta, el resto lazy
+  const allLazy = grid.querySelectorAll('img.lazy-img');
+  allLazy.forEach((img, i) => {
+    if (i < 4) {
+      // Carga inmediata para las primeras imágenes visibles
+      const src = img.dataset.src;
+      img.src = src;
+      img.removeAttribute('data-src');
+      img.classList.add('lazy-loaded');
+      img.parentElement.classList.remove('img-skeleton');
+    }
+  });
   activateLazyLoad(grid);
 
   renderPaginationControls(totalPages, images.length);
@@ -1041,7 +1054,7 @@ function activateLazyLoad(container) {
         lazyObserver.unobserve(img);
       }
     });
-  }, { rootMargin: '150px 0px' });
+  }, { rootMargin: '80px 0px' });
 
   container.querySelectorAll('img.lazy-img').forEach(img => {
     img.parentElement.classList.add('img-skeleton');
